@@ -6,6 +6,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, PieChart, Pie, Cell
 } from "recharts";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // ── helpers ────────────────────────────────────────────────────────────────
 const fmt = (n) =>
@@ -174,7 +175,7 @@ function analyzeTransactions(rows, cols, accountMeta = {}) {
   // ── Flag: pass-through (turnover ratio > 10x) ────────────────────────
   const passThroughFlag = turnoverRatio > 10;
 
-  // ── Flag: late-night txns (23:00–04:00) ──────────────────────────────
+  // ── Flag: late-night txns (23:00–04:00) ────────────────���─────────────
   const lateNight = txns.filter((t) => {
     const h = t.date.getHours();
     return h >= 23 || h <= 4;
@@ -599,7 +600,7 @@ PREPARED BY: Transaction Pattern Analysis System v1.0
 BOTTOM LINE UP FRONT (BLUF):
 ${bluf}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━���━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEY JUDGMENTS:
 1. ${j1}
@@ -612,7 +613,7 @@ KEY JUDGMENTS:
 
 INDICATORS OF CONCERN:
 ${indicators}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━��━━━━━━━━━━━━━━━
 
 ACCOUNT BEHAVIOR PROFILE:
 ${profile1}
@@ -1549,6 +1550,7 @@ export default function App() {
 
       </main>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
